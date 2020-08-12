@@ -1,0 +1,8 @@
+com\trans\service\springbootrewards\rewards\CustomerRepository.class
+com\trans\service\springbootrewards\SpringBootRewardsApplication.class
+com\trans\service\springbootrewards\model\Reward.class
+com\trans\service\springbootrewards\rewards\RewardsController.class
+com\trans\service\springbootrewards\rewards\RewardsService.class
+com\trans\service\springbootrewards\model\Transaction.class
+com\trans\service\springbootrewards\rewards\RewardsServiceMock.class
+com\trans\service\springbootrewards\model\Customer.class
