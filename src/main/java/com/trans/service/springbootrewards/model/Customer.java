@@ -55,14 +55,10 @@ public class Customer {
 	}
 	public Long getRewardPoints() {
 		if (transactions == null || transactions.isEmpty()) return 0l;
-		
 		return transactions.stream().map(x -> x.getPoints().intValue()).reduce(0, (a,b) -> a + b).longValue();
 	}
 	public Double getTotalPurchases() {
 		if (transactions == null || transactions.isEmpty()) return 0d;
-		
 		return transactions.stream().map(x -> x.getTotal().doubleValue()).reduce(0d, (a,b) -> a + b).doubleValue();
 	}
-	
-	
 }

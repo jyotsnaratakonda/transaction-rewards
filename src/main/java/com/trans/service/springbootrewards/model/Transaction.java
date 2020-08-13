@@ -19,13 +19,12 @@ public class Transaction extends Reward {
 	private Long id;
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn //foreign key to customer
+	@JoinColumn
 	private Customer customer;
 	private Double total;
 	private String description;
-	//@Temporal(TemporalType.DATE)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date saveDate;
+	private Date effectiveDate;
 	
 	
 	public Transaction() {
@@ -37,14 +36,14 @@ public class Transaction extends Reward {
 		this.customer = customer;
 		this.total = total;
 		this.description = description;
-		this.saveDate = date;
+		this.effectiveDate = date;
 	}
 
 	public Date getSaveDate() {
-		return saveDate;
+		return effectiveDate;
 	}
-	public void setSaveDate(Date saveDate) {
-		this.saveDate = saveDate;
+	public void setSaveDate(Date effectiveDate) {
+		this.effectiveDate = effectiveDate;
 	}
 	public Long getId() {
 		return id;
@@ -74,15 +73,16 @@ public class Transaction extends Reward {
 	@Override
 	public Long getPoints() {
 		this.points = 0l;
-		
 		if (this.total > 50 && this.total <= 100) {
 			this.points += (this.total.intValue() - 50) * 1;
 			
 		} 
 		
 		if (this.total > 100) {
-			this.points += 50;  //1 point for every dollar spent over $50
-			this.points += (this.total.intValue() - 100) * 2;  //2 points for every dollar spent over $100
+			// 1 point
+			this.points += 50;
+			//2 points
+			this.points += (this.total.intValue() - 100) * 2;
 		}
 		
 		return this.points;
@@ -90,8 +90,8 @@ public class Transaction extends Reward {
 	
 	@Override
 	public String toString() {
-		return String.format("Transaction [id=%s, customer=%s, total=%s, description=%s, saveDate=%s]", id, customer,
-				total, description, saveDate);
+		return String.format("Transaction [id=%s, customer=%s, total=%s, description=%s, effectiveDate=%s]", id, customer,
+				total, description, effectiveDate);
 	}
 	
 }

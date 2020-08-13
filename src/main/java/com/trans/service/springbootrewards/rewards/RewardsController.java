@@ -15,18 +15,10 @@ import java.util.List;
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class RewardsController {
-
-	//@Autowired
-	//private RewardsServiceMock rewardsService;
 	
 	@Autowired
 	private RewardsService rewardsService;
-	
-	
-//	@GetMapping("/{idUser}/rewards")
-//	public List<MyTransaction> getAll(@PathVariable Integer idUser) {
-//		return rewardsService.getAll();
-//	}
+
 	
 	@GetMapping("/customers")
 	public List<Customer> findCustomerAll() {
@@ -39,6 +31,5 @@ public class RewardsController {
 		if (customer == null) return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<Customer>(customer, HttpStatus.OK);
 	}
-	
 	
 }

@@ -20,10 +20,5 @@ public class RewardsService {
 	public Customer getCustomerById(Integer customerId) {
 		return customerRepository.findById(customerId).orElse(null);
 	}
-	
-//	public ResponseEntity<Customer> getCustomerById(Integer customerId) {
-//		Customer customer = customerRepository.findById(customerId).orElse(null);
-//		return new ResponseEntity<Customer>(customer, HttpStatus.NOT_FOUND);
-//	}
 
 }
